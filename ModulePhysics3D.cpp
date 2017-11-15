@@ -121,6 +121,13 @@ bool ModulePhysics3D::CleanUp()
 	}
 
 	// TODO 2: Free all collision shapes and bodies
+	for (p2List_item<btCollisionShape*>* col_shape = col_shape_list.getFirst(); col_shape != nullptr; col_shape = col_shape->next)
+		delete col_shape->data;
+	col_shape_list.clear();
+
+	for (p2List_item<PhysBody3D*>* phys_body_3d = phys_body_3d_list.getFirst(); phys_body_3d != nullptr; phys_body_3d = phys_body_3d->next)
+		delete phys_body_3d->data;
+	phys_body_3d_list.clear();
 
 	delete world;
 

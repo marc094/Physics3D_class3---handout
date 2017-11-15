@@ -20,4 +20,6 @@ public:
 
 public:
 	PhysBody3D* b;
+	Sphere s;
+	PhysBody3D* s_b;
 };

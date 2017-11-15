@@ -22,6 +22,8 @@ bool ModuleSceneIntro::Start()
 
 	// TODO 3: create a sphere in the world with a primitive
 	// and create a physics body for it. Remember to render it in Update()
+	s.SetPos(0.0f, 0.0f, 0.0f);
+	s_b = App->physics->AddBody(s);
 
 	// TODO 5: Add this module to the list of collision listeners
 
@@ -43,8 +45,10 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
+	s.Render();
 	// TODO 4: update the transform of the shape to meet the
 	// physics one
+	s_b->SetTransform(&s.transform);
 
 	return UPDATE_CONTINUE;
 }
